@@ -14,6 +14,7 @@ function TrackingCamera::addToWindow(%this, %window) {
       %window.mount(%this.Instance);
    } else {
       %c = new SceneObject() { class="TrackingCameraInstance"; };
+      %c.setVisible(false);
       %c.setGravityScale(0);
       %c.setUpdateCallback(true);
       %c.trackObjects = new SimSet();
