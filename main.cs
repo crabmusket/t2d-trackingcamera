@@ -40,8 +40,9 @@ function TrackingCameraInstance::onUpdate(%this) {
    %max = "0 0";
    %i = 0;
    while(%i < %this.trackObjects.getCount()) {
-      %pos = VectorAdd(%pos, %this.trackObjects.getObject(%i).getPosition());
-      %diff = VectorSub(%pos, %this.getPosition());
+      %op = %this.trackObjects.getObject(%i).getPosition();
+      %pos = VectorAdd(%pos, %op);
+      %diff = VectorSub(%op, %this.getPosition());
       if(VectorLen(%diff) > VectorLen(%max)) {
          %max = %diff;
       }
